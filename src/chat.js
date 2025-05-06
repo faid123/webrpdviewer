@@ -144,7 +144,7 @@ async function handleSendMessage() {
         textInput.value = '';
         imageInput.value = '';
         pendingImageBase64 = null;
-        messages = messages.filter(m => m.author !== 'Preview');
+        messages = messages.filter(m => m.author !== 'Click send to upload image');
         fetchNotes();
     }
 }
@@ -161,7 +161,7 @@ function handleImageUpload(event) {
             console.log('🖼️ 图片预览加载成功');
 
             // 移除已有预览图
-            messages = messages.filter(m => m.author !== 'Preview');
+            messages = messages.filter(m => m.author !== 'Click send to upload image');
 
             const previewHtml = `
                 <img src="data:${mime};base64,${base64}" alt="Preview" class="uploaded-image" />
@@ -172,7 +172,7 @@ function handleImageUpload(event) {
 
             messages.push({
                 content: previewHtml,
-                author: 'Preview',
+                author: 'Click send to upload image',
                 timestamp: new Date().toLocaleString(),
             });
 
@@ -186,7 +186,7 @@ function handleImageUpload(event) {
 // 取消图片预览
 window.clearImage = function () {
     pendingImageBase64 = null;
-    messages = messages.filter(m => m.author !== 'Preview');
+    messages = messages.filter(m => m.author !== 'Click send to upload image');
     displayMessages();
     imageInput.value = '';
 };

@@ -198,3 +198,34 @@ header h1 {
 }
 
 
+/* 聊天图标样式（只移动端显示） */
+#chat-icon {
+  position: fixed;
+  bottom: 240px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+  cursor: pointer;
+  display: none; /* 默认隐藏，由 JS 决定显示 */
+}
+
+/* 移动端展开聊天框样式 */
+#chat-widget.active {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  bottom: 650px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  height: 40%;
+  max-height: 50%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+
